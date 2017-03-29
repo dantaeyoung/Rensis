@@ -4,8 +4,8 @@ $lightblue: #A2D5ED;
 $lightgrey: #C0C0C0;
 
 $buttonbc: cyan;
-$backgc: turquoise;
-$highlightcolor: lighten(orange, 20%);
+$backgc: #b766f4;
+$highlightcolor: lighten(#66def4, 2%);
 
 html {
   font-family: "Cousine", "monospace", sans-serif;
@@ -195,11 +195,16 @@ button {
 
 #twobytwo {
   background: url('two_by_two_field.svg');
+  background-color: white;
   width: 500px;
   height: 500px;
-  border: 3px solid black;
   position: relative;
   .mark {
     position: absolute;
+  }
+
+  #results {
+    position: relative;
+    margin: 14px 36px
   }
 }

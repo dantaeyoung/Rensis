@@ -87,7 +87,7 @@ $(function() {
         posOption.left = (((allResults[k] + 1) / 2) * 100) + "%";
       }
     });
-    $("<div class='mark'>" + allResults.name + "</div>").css(posOption).appendTo("#twobytwo");
+    $("<div class='mark'>&#9679; " + allResults.name + "</div>").css(posOption).appendTo("#twobytwo #results");
 
     $("#twitterprofile").attr("src", "https://twitter.com/" + allResults.twitter_handle + "/profile_image?size=original");
     $("#personname").html(allResults.name);
