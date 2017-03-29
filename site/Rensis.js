@@ -8,7 +8,7 @@ class Rensis {
 
 	constructor (options) {
 		this.options = options;
-    this.allQuestions = []
+    this.allQuestions = [];
 	}
 
 	idifyChoices(q) {
@@ -48,4 +48,4 @@ class Rensis {
 
 }
 
-module.exports = Rensis;
+export default Rensis;

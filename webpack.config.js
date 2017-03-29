@@ -11,7 +11,7 @@ const config = {
   },
   devtool: 'eval',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
@@ -21,7 +21,9 @@ const config = {
             'sass-loader?outputStyle=expanded'
           ]
         })
-			}	
+			}	,
+      { test: /\.(png|jpg|svg)$/, loader: 'file-loader' }
+
     ]
   },
 	plugins: [

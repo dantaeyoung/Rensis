@@ -1,6 +1,6 @@
-var questions = [];
+var questions_data = [];
 
-questions.question1 = {
+questions_data.question1 = {
   "title": "Alignment",
   "description": "This is a chart of D&D Alignment",
   "axes": {
@@ -45,5 +45,5 @@ questions.question1 = {
 };
 
 
-export default questions;
+export default questions_data;
 
