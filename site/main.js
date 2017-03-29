@@ -54,11 +54,6 @@ $(function() {
   });
 
 
-//   FOR DEBUGGINg
-  $("#question_name input").val("Dan"); 
-  $("#question_twitter_handle input").val("dantaeyoung"); 
-  $("input").prop("checked", "checked");
-  check_and_disable_cancelconfirm();
 
   $("input").change((event) => {
     check_and_disable_cancelconfirm();
@@ -88,7 +83,7 @@ $(function() {
       }
     });
     $("<div class='mark'>&#9679; " + allResults.name + "</div>").css(posOption).appendTo("#twobytwo #results");
-
+//TODO: axes
     $("#twitterprofile").attr("src", "https://twitter.com/" + allResults.twitter_handle + "/profile_image?size=original");
     $("#personname").html(allResults.name);
     $("#thankyou").fadeIn(1000);

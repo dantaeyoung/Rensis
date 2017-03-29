@@ -20,11 +20,6 @@ questions_data.question1 = {
     "question": "What's your name?"
   },
   {
-    "type": "text",
-    "qid": "twitter_handle",
-    "question": "What's your Twitter handle? (optional)"
-  },
-  {
     "type": "likert",
     "qid": "meeting_cancel_elated",
     "question": "You feel secretly elated when a meeting is canceled.",

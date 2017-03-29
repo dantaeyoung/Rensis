@@ -194,17 +194,19 @@ button {
 }
 
 #twobytwo {
-  background: url('two_by_two_field.svg');
+  background: url('two_by_two_field.svg') no-repeat;
   background-color: white;
   width: 500px;
   height: 500px;
   position: relative;
+  padding: 15px 30px 34px 20px;
   .mark {
     position: absolute;
   }
 
   #results {
     position: relative;
-    margin: 14px 36px
+    width: 100%;
+    height: 100%;
   }
 }
