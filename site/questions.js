@@ -1,0 +1,49 @@
+var questions = [];
+
+questions.question1 = {
+  "title": "Alignment",
+  "description": "This is a chart of D&D Alignment",
+  "axes": {
+    'chaoticness': {
+      'axis' : 'x',
+      'labels': ['Lawful', 'Chaotic']
+    },
+    'goodness': {
+      'axis' : 'y',
+      'labels': ['Evil', 'Good']
+    }
+  },
+  "questions": [
+  {
+    "type": "text",
+    "qid": "name",
+    "question": "What's your name?"
+  },
+  {
+    "type": "text",
+    "qid": "twitter_handle",
+    "question": "What's your Twitter handle? (optional)"
+  },
+  {
+    "type": "likert",
+    "qid": "meeting_cancel_elated",
+    "question": "You feel secretly elated when a meeting is canceled.",
+    "func": function(ans) { return {'chaoticness': 0.5 * ans } }
+  },
+  {
+    "type": "likert",
+    "qid": "turtle_flip",
+    "question": "If you see a turtle upside on the ground, you would help flip it over.",
+    "func": function(ans) { return {'goodness': 1.0 * ans } }
+  },
+  {
+    "type": "likert",
+    "qid": "altered_states",
+    "question": "Altered states are not desirable to you.",
+    "func": function(ans) { return {'chaoticness': -0.2 * ans } }
+  }]
+};
+
+
+export default questions;
+
