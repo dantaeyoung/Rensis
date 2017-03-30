@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import _ from 'lodash';
 import 'whatwg-fetch';
+import queryString from 'query-string';
 
 import './reset.scss';
 import './main.scss';
@@ -12,6 +13,11 @@ console.log(questionDataPath);
 
 var questionData = {};
 var rensis;
+
+
+// use URL querystring if possible
+const parsed = queryString.parse(location.search);
+if("questions" in parsed) { questionDataPath = parsed.questions; }
 
 $.getJSON(questionDataPath, function( data ) {
 
@@ -25,8 +31,6 @@ $.getJSON(questionDataPath, function( data ) {
     "description": "#description",
     "questions": "#questions"
   });
-
-
 
   _.each(questionData.axes, function(v, k) {
     if(v.axis == "y") {

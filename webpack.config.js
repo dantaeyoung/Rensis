@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 var HtmlWebpackPlugin =  require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -31,7 +32,12 @@ const config = {
 		new HtmlWebpackPlugin({
       template: './site/index.html'
     }),
-    new ExtractTextPlugin('bundle.css')
+    new ExtractTextPlugin('bundle.css'),
+    new webpack.optimize.UglifyJsPlugin({
+      output: {
+        comments: false
+      }
+    })
 	]	
 };
 
