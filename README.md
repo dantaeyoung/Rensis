@@ -2,9 +2,10 @@
 
 ## Rensis lets you create your own Likert-question-based questionnaire to plot points on a set of two-by-two diagrams. 
 
-![Rensis screenshot](https://github.com/dantaeyoung/Rensis/blob/master/screenshot.png)
+<img src="https://github.com/dantaeyoung/Rensis/blob/master/screenshot.png?raw=true" width="600px" height="600px" />
 
-
+### Change questions
+Edit `questionData.json`.
 
 
 ### start development server:
