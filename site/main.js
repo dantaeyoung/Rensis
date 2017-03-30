@@ -1,13 +1,45 @@
 import $ from 'jquery';
 import _ from 'lodash';
+import 'whatwg-fetch';
 
 import './reset.scss';
 import './main.scss';
 import Rensis from './Rensis';
-import questions_data from './questions.data';
 
-var questionData = questions_data.question1;
+import questionDataPath from './questionData.json'; // file-loader gives us the path
 
+console.log(questionDataPath);
+
+var questionData = {};
+var rensis;
+
+$.getJSON(questionDataPath, function( data ) {
+
+	questionData = data;
+
+  console.log(questionData);
+  rensis = new Rensis(questionData);
+
+  rensis.addHtml({
+    "title": "#title",
+    "description": "#description",
+    "questions": "#questions"
+  });
+
+
+
+  _.each(questionData.axes, function(v, k) {
+    if(v.axis == "y") {
+      $("#axis_ymin").html(v.labels[0]);
+      $("#axis_ymax").html(v.labels[1]);
+    }
+    if(v.axis == "x") {
+      $("#axis_xmin").html(v.labels[0]);
+      $("#axis_xmax").html(v.labels[1]);
+    }
+  });
+
+});
 
 
 var clearInput = function() {
@@ -50,31 +82,6 @@ function valToPos(val, axis) {
 
 $(function() {
 
-  var allQuestions = [];
-
-
-  console.log(questionData);
-  var rensis = new Rensis(questionData);
-
-  rensis.addHtml({
-    "title": "#title",
-    "description": "#description",
-    "questions": "#questions"
-  });
-
-
-
-
-  _.each(questionData.axes, function(v, k) {
-    if(v.axis == "y") {
-      $("#axis_ymin").html(v.labels[0]);
-      $("#axis_ymax").html(v.labels[1]);
-    }
-    if(v.axis == "x") {
-      $("#axis_xmin").html(v.labels[0]);
-      $("#axis_xmax").html(v.labels[1]);
-    }
-  });
 
 
   $("input").change((event) => {
@@ -96,7 +103,6 @@ $(function() {
     var posOption = {};
     _.each(questionData.axes, function(v, k) {
       if(v.axis == "y") {
-        console.log("y = ");console.log(v);
         posOption.top = valToPos(allResults[k], "y") + "%";
         $("#axis_ymin").html(v.labels[0]);
         $("#axis_ymax").html(v.labels[1]);

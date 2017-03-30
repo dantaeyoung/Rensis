@@ -14,6 +14,9 @@ class Question {
 
 	constructor (options) {
 		this.options = options;
+		if("func" in this.options) {
+			this.options.fullFunc = new Function('ans', this.options.func);
+		}
 	}
 
 
@@ -110,7 +113,7 @@ class Question {
 
 		if(this.options.type == "likert") {
 			var answer = document.querySelector("input[name=likert_" + this.options.qid + "]:checked").value;
-			return this.options.func(likertLookup[answer]);
+			return this.options.fullFunc(likertLookup[answer]);
 		}
 
 

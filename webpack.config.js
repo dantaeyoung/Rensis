@@ -5,11 +5,12 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const config = {
   entry: './site/main.js',
-  output: {
+	output: {
     path: path.resolve(__dirname, 'dist'),
+		publicPath: '/dist',
     filename: 'bundle.js'
   },
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -22,7 +23,7 @@ const config = {
           ]
         })
 			}	,
-      { test: /\.(png|jpg|svg|data\.js)$/, loader: 'file-loader' }
+      { test: /\.(png|jpg|svg|json)$/, loader: 'file-loader?name=/[name].[ext]' }
 
     ]
   },

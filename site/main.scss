@@ -205,7 +205,9 @@ button {
   border: 20px solid white;
   border-radius: 10px;
   .mark {
+    color:  darken($highlightcolor, 30%);
     position: absolute;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
   }
 
   #results {
