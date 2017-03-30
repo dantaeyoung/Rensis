@@ -40,6 +40,7 @@ const config = {
     new ExtractTextPlugin('bundle.css'),
     new webpack.optimize.UglifyJsPlugin({
       output: {
+        beautify: true,
         comments: false
       }
     })
