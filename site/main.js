@@ -7,17 +7,17 @@ import './reset.scss';
 import './main.scss';
 import Rensis from './Rensis';
 
-import questionDataPath from './questionData.json'; // file-loader gives us the path
+import qdp from './questionData.json'; // file-loader gives us the path
 
-console.log(questionDataPath);
 
 var questionData = {};
 var rensis;
 
 
+if(typeof(qdp) !== "undefined") { var questionDataPath = qdp; }
 // use URL querystring if possible
 const parsed = queryString.parse(location.search);
-if("questions" in parsed) { questionDataPath = parsed.questions; }
+if("questions" in parsed) { var questionDataPath = parsed.questions; }
 
 $.getJSON(questionDataPath, function( data ) {
 

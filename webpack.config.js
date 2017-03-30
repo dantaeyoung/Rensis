@@ -7,9 +7,14 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const config = {
   entry: './site/main.js',
 	output: {
-    path: path.resolve(__dirname, 'dist'),
-		publicPath: '/dist',
+    path: __dirname + '/dist', //where it puts on build
+    publicPath: '/', // where it links to
     filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: process.cwd(),
+    inline: true,
+    hot: true
   },
   devtool: 'eval-source-map',
   module: {
@@ -24,7 +29,7 @@ const config = {
           ]
         })
 			}	,
-      { test: /\.(png|jpg|svg|json)$/, loader: 'file-loader?name=/[name].[ext]' }
+      { test: /\.(png|jpg|svg|json)$/, loader: 'file-loader?name=[name].[ext]' }
 
     ]
   },
