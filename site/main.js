@@ -111,14 +111,14 @@ $(function() {
 //TODO: axes
     $("#twitterprofile").attr("src", "https://twitter.com/" + allResults.twitter_handle + "/profile_image?size=original");
     $("#personname").html(allResults.name);
-    $("#thankyou").fadeIn(1000);
+    $("#postquestions").fadeIn(1000);
 
   });
 
-  $("button#thankyoumessage").click(function() {
+  $("button#postquestionsmessage").click(function() {
     clearInput();
     check_and_disable_cancelconfirm();
-    $("#thankyou").fadeOut(1000);
+    $("#postquestions").fadeOut(1000);
   })	
 
 
