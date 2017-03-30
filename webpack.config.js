@@ -22,7 +22,7 @@ const config = {
           ]
         })
 			}	,
-      { test: /\.(png|jpg|svg)$/, loader: 'file-loader' }
+      { test: /\.(png|jpg|svg|data\.js)$/, loader: 'file-loader' }
 
     ]
   },

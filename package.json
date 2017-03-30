@@ -21,7 +21,7 @@
     "webpack-dev-server": "^2.4.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --colors --progress --port 8082",
+    "start": "webpack-dev-server --inline --hot --colors --progress --port 8082",
     "build": "webpack --colors --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

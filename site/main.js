@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import _ from 'lodash';
 
+import './reset.scss';
 import './main.scss';
 import Rensis from './Rensis';
-import questions_data from './questions_data';
+import questions_data from './questions.data';
 
 var questionData = questions_data.question1;
 
@@ -38,6 +39,14 @@ if ($(".question").length) {
 
 }
 
+function valToPos(val, axis) {
+  if(axis == "y") {
+    return ((1 - ((val + 1) / 2)) * 100);
+  }
+  if(axis == "x") {
+    return (((val + 1) / 2) * 100);
+  }
+}
 
 $(function() {
 
@@ -53,6 +62,19 @@ $(function() {
     "questions": "#questions"
   });
 
+
+
+
+  _.each(questionData.axes, function(v, k) {
+    if(v.axis == "y") {
+      $("#axis_ymin").html(v.labels[0]);
+      $("#axis_ymax").html(v.labels[1]);
+    }
+    if(v.axis == "x") {
+      $("#axis_xmin").html(v.labels[0]);
+      $("#axis_xmax").html(v.labels[1]);
+    }
+  });
 
 
   $("input").change((event) => {
@@ -71,15 +93,18 @@ $(function() {
 
     console.log(allResults);
 
-
     var posOption = {};
     _.each(questionData.axes, function(v, k) {
       if(v.axis == "y") {
         console.log("y = ");console.log(v);
-        posOption.top = ((1 - ((allResults[k] + 1) / 2)) * 100) + "%";
+        posOption.top = valToPos(allResults[k], "y") + "%";
+        $("#axis_ymin").html(v.labels[0]);
+        $("#axis_ymax").html(v.labels[1]);
       }
       if(v.axis == "x") {
-        posOption.left = (((allResults[k] + 1) / 2) * 100) + "%";
+        posOption.left = valToPos(allResults[k], "x") + "%";
+        $("#axis_xmin").html(v.labels[0]);
+        $("#axis_xmax").html(v.labels[1]);
       }
     });
     $("<div class='mark'>&#9679; " + allResults.name + "</div>").css(posOption).appendTo("#twobytwo #results");
