@@ -6,7 +6,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const config = {
   entry: './site/main.js',
 	output: {
-    path: __dirname + '/dist', //where it puts build files
+    path: __dirname + '/docs', //where it puts build files
     publicPath: './', // where it links to within the code
     filename: 'bundle.js'
   },
