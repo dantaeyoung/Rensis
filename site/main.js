@@ -1,6 +1,7 @@
+
+
 import $ from 'jquery';
 import _ from 'lodash';
-import 'whatwg-fetch';
 import queryString from 'query-string';
 
 import './reset.scss';
