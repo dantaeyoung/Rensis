@@ -16,6 +16,8 @@ class Rensis {
 	}
 
   addHtml(htmlOptions) {
+    $(htmlOptions.title).html(this.options.title);
+    $(htmlOptions.description).html(this.options.description);
     this.allQuestions = _.map(this.options.questions, function(q) { return new Question(q); });
     _.each(this.allQuestions, function(thisQ) {
       $(htmlOptions.questions).append(thisQ.getHtml());

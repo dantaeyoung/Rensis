@@ -3,6 +3,7 @@ const webpack = require('webpack');
 var HtmlWebpackPlugin =  require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+
 const config = {
   entry: './site/main.js',
 	output: {
@@ -14,7 +15,13 @@ const config = {
     inline: true,
     hot: true
   },
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
+  resolve: {
+		modules: ['bower_components', 'node_modules'],
+    alias: {
+      '~' : __dirname
+    }
+  },
   module: {
     rules: [
       {

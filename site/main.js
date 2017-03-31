@@ -3,10 +3,11 @@
 import $ from 'jquery';
 import _ from 'lodash';
 import queryString from 'query-string';
+import editable from 'editable';
 
-import './reset.scss';
-import './main.scss';
-import Rensis from './Rensis';
+import './css/reset.scss';
+import './css/main.scss';
+import Rensis from './Rensis/Rensis';
 
 import qdp from './questionData.json'; // file-loader gives us the path
 
@@ -28,8 +29,8 @@ $.getJSON(questionDataPath, function( data ) {
   rensis = new Rensis(questionData);
 
   rensis.addHtml({
-    "title": "#title",
-    "description": "#description",
+    "title": ".quiz_title",
+    "description": ".quiz_description",
     "questions": "#questions"
   });
 
