@@ -7,7 +7,7 @@ const config = {
   entry: './site/main.js',
 	output: {
     path: __dirname + '/dist', //where it puts build files
-    publicPath: '/', // where it links to within the code
+    publicPath: './', // where it links to within the code
     filename: 'bundle.js'
   },
   devServer: {
