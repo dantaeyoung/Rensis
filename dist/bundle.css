@@ -1,0 +1,263 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none;
+}
+
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+html {
+  font-family: "Cousine", "monospace", sans-serif;
+  background: #b766f4;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  padding: 50px;
+  max-width: 700px;
+  margin: auto;
+}
+
+#personalityquiz {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.question {
+  margin: 10px;
+  padding: 15px 0px 35px 0px;
+  border-bottom: 2px solid #efefef;
+}
+
+.question .statement {
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 1.5em;
+  padding: 10px 0 5px 0;
+  margin: 5px 0px;
+}
+
+.question .options {
+  font-weight: normal;
+  font-size: 0.8em;
+}
+
+.question li label {
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.options input:checked + label {
+  background-color: #70e0f5;
+  font-weight: bold;
+  font-family: "Cousine", "monospace", sans-serif !important;
+}
+
+input[type='text']:valid {
+  background-color: #70e0f5;
+}
+
+.text_question input {
+  font-weight: bold;
+  font-size: 1.5em;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.multiple_choice_question li {
+  margin-left: 20px;
+}
+
+.multiple_choice_question li label {
+  margin-left: 10px;
+}
+
+.likert_question .options {
+  list-style: none;
+  width: 100%;
+  margin: 10px 0px 0px 0px;
+  padding: 0 0 15px;
+  display: block;
+}
+
+.likert_question .options:before {
+  content: "";
+  position: relative;
+  top: 11px;
+  left: 13%;
+  display: block;
+  background-color: #efefef;
+  height: 4px;
+  width: 74%;
+}
+
+.likert_question .options li {
+  display: inline-block;
+  width: 15%;
+  text-align: center;
+  vertical-align: top;
+}
+
+.likert_question .options li.wider {
+  width: 25%;
+}
+
+.likert_question .options li label {
+  width: 100%;
+}
+
+.likert_question .options li input {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 50%;
+  margin-left: -6px;
+}
+
+#cancelconfirmmenu {
+  margin: 40px 0px;
+  background-color: #8910e4;
+  flex-direction: row;
+  display: flex;
+  border-radius: 10px;
+}
+
+#cancelconfirmmenu button {
+  flex-grow: 1;
+  height: 100%;
+}
+
+button {
+  margin: 20px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: white;
+  color: #6c0db4;
+  border-right: 2px solid #006666;
+  border-bottom: 2px solid #006666;
+}
+
+button#confirm {
+  background-color: #79e2f5;
+}
+
+button#cancel {
+  background-color: #be74f5;
+}
+
+button[disabled=disabled], button:disabled {
+  font-weight: normal;
+  border-right: 2px solid #5a5a5a;
+  border-bottom: 2px solid #5a5a5a;
+  color: #747474;
+  background-color: #C0C0C0 !important;
+}
+
+button:active {
+  border-left: 2px solid #5a5a5a;
+  border-top: 2px solid #5a5a5a;
+  border-right: none;
+  border-bottom: none;
+  background-color: #33ffff;
+  color: #6c0db4;
+}
+
+#postquestions {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #a136f1;
+}
+
+#pqwrapper {
+  font-weight: bold;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#personname {
+  font-weight: bold;
+}
+
+#twobytwo {
+  background: url(/two_by_two_field.svg) no-repeat;
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  padding: 25px;
+  border: 20px solid white;
+  border-radius: 10px;
+}
+
+#twobytwo .mark {
+  color: #0ea2be;
+  position: absolute;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+#twobytwo #results {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: -7px;
+  left: -5px;
+}
+
+/*# sourceMappingURL=bundle.css.map*/
