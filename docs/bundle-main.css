@@ -231,12 +231,27 @@ button:active {
   flex-direction: column;
 }
 
+.quiz_header {
+  text-align: center;
+}
+
+.quiz_header .quiz_title {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.quiz_header .quiz_description {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
 #personname {
   font-weight: bold;
 }
 
 #twobytwo {
-  background: url(./two_by_two_field.svg) no-repeat;
+  background: url(/two_by_two_field.svg) no-repeat;
   background-color: white;
   width: 500px;
   height: 500px;
@@ -260,4 +275,4 @@ button:active {
   left: -5px;
 }
 
-/*# sourceMappingURL=bundle.css.map*/
+/*# sourceMappingURL=bundle-main.css.map*/

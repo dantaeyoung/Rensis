@@ -1,29 +1,23 @@
 const path = require('path');
 const webpack = require('webpack');
+var hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
 var HtmlWebpackPlugin =  require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
 const config = {
-  entry: './site/main.js',
-	output: {
-    path: __dirname + '/docs', //where it puts build files
-    publicPath: './', // where it links to within the code
-    filename: 'bundle.js'
+  context: __dirname,
+  entry: {
+        main: ['./site/main.js', hotMiddlewareScript]
   },
-  devServer: {
-    inline: true,
-    hot: true
+  output: {
+    path: path.resolve(__dirname, 'docs'),
+    publicPath: '/',
+    filename: 'bundle-[name].js'
   },
-  devtool: 'eval-source-map',
-  resolve: {
-		modules: ['bower_components', 'node_modules'],
-    alias: {
-      '~' : __dirname
-    }
-  },
+  devtool: 'source-map',
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -41,22 +35,20 @@ const config = {
             'sass-loader?outputStyle=expanded'
           ]
         })
-			}	,
+			},
       { test: /\.(png|jpg|svg|json)$/, loader: 'file-loader?name=[name].[ext]' }
-
     ]
   },
-	plugins: [
-		new HtmlWebpackPlugin({
+    plugins: [
+    new HtmlWebpackPlugin({
       template: './site/index.html'
     }),
-    new ExtractTextPlugin('bundle.css'),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
-    })
-	]	
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new ExtractTextPlugin('bundle-[name].css')
+    ]    
 };
 
 module.exports = config;
+
 
