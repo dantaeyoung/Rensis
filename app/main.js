@@ -1,9 +1,7 @@
 import $ from 'jquery';
 import _ from 'lodash';
 import queryString from 'query-string';
-import editable from 'editable';
 
-window.editable = editable;
 import './css/reset.scss';
 import './css/main.scss';
 import Rensis from './Rensis/Rensis';
