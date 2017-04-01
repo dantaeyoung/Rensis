@@ -1,13 +1,12 @@
 // webpack plugins
-const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-
-const path = require('path');
+var path = require('path');
 
 const srcDir = path.resolve(__dirname, '..', 'app');
-const distDir = path.resolve(__dirname, '..', 'dist');
+const distDir = path.resolve(__dirname, '..', 'docs');
 
 module.exports = {
-
+	srcDir: srcDir,
+	distDir: distDir,
   entry: {
     'app': [
       srcDir + '/main.js'
@@ -18,6 +17,5 @@ module.exports = {
     extensions: ['.js', '.scss'],
     modules: ['node_modules']
   }
-
   
 };

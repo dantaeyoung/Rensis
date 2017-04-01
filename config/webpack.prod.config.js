@@ -3,16 +3,17 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const webpackMerge = require('webpack-merge');
 const webpackCommon = require('./webpack.common.config');
 
-const srcDir = path.resolve(__dirname, '..', 'app');
-const distDir = path.resolve(__dirname, '..', 'dist');
+const srcDir = webpackCommon.srcDir;
+const distDir = webpackCommon.distDir;
 
-module.exports = webpackMerge(webpackCommon, {
+module.exports =  {
 
   // Where to fine the source code
   context: srcDir,
+	entry: webpackCommon.entry,
+	resolve: webpackCommon.resolve,
 
   // No source map for production build
   devtool: 'hidden-source-map',
@@ -125,4 +126,4 @@ module.exports = webpackMerge(webpackCommon, {
     new ExtractTextPlugin('app-[hash].css'),
   ],
 
-});
+};

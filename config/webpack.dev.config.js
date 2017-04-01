@@ -2,17 +2,18 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const webpackMerge = require('webpack-merge');
 const webpackCommon = require('./webpack.common.config');
 
-const srcDir = path.resolve(__dirname, '..', 'app');
-const distDir = path.resolve(__dirname, '..', 'dist');
+const srcDir = webpackCommon.srcDir;
+const distDir = webpackCommon.distDir;
 
 
 
-module.exports = webpackMerge(webpackCommon, {
+module.exports = {
 
   context: srcDir,
+	entry: webpackCommon.entry,
+	resolve: webpackCommon.resolve,
 
   devtool: 'source-map',
 
@@ -29,8 +30,10 @@ module.exports = webpackMerge(webpackCommon, {
     // match the output path
     publicPath: '/',
     // match the output `publicPath`
+		hot: true,
+		inline: true,
     historyApiFallback: true,
-    port: 3000
+    port: 3000 
   },
 
   module: {
@@ -77,7 +80,8 @@ module.exports = webpackMerge(webpackCommon, {
   },
 
   plugins: [
-    new webpack.NamedModulesPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NamedModulesPlugin(),
 
     new HtmlWebpackPlugin({
       template: path.join(srcDir, 'index.html'),
@@ -91,5 +95,5 @@ module.exports = webpackMerge(webpackCommon, {
     }),
   ],
 
-});
+};
 

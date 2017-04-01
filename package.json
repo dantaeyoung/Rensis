@@ -28,8 +28,9 @@
   },
   "scripts": {
     "start": "webpack-dev-server --progress --profile --colors",
-    "build": "rm -rf ./dist && NODE_ENV=production webpack --progress --profile --colors",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf ./docs && NODE_ENV=production webpack --progress --profile --colors",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preview": "NODE_ENV=production webpack-dev-server --progress --profile --colors"
   },
   "repository": {
     "type": "git",
