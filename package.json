@@ -19,14 +19,16 @@
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.2",
+    "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^2.4.1",
-    "webpack-hot-middleware": "^2.17.1"
+    "webpack-hot-middleware": "^2.17.1",
+    "webpack-merge": "^4.1.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "build": "webpack --colors --progress",
+    "start": "webpack-dev-server --progress --profile --colors",
+    "build": "rm -rf ./dist && NODE_ENV=production webpack --progress --profile --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
