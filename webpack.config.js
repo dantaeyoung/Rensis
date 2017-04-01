@@ -8,14 +8,14 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const config = {
   context: __dirname,
   entry: {
-        main: ['./site/main.js', hotMiddlewareScript]
+        main: [hotMiddlewareScript, './site/main.js']
   },
   output: {
     path: path.resolve(__dirname, 'docs'),
     publicPath: '/',
     filename: 'bundle-[name].js'
   },
-  devtool: 'source-map',
+//  devtool: 'eval-source-map',
   module: {
     loaders: [
       {
@@ -28,24 +28,26 @@ const config = {
       },
       {
         test: /\.scss$/,
+        loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"]
+/* this collides with HMR. 
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader',
-            'sass-loader?outputStyle=expanded'
+            'css-loader?sourceMap',
+            'sass-loader?sourceMap'
           ]
-        })
+        })*/
 			},
       { test: /\.(png|jpg|svg|json)$/, loader: 'file-loader?name=[name].[ext]' }
     ]
   },
     plugins: [
-    new HtmlWebpackPlugin({
-      template: './site/index.html'
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new ExtractTextPlugin('bundle-[name].css')
+      new webpack.HotModuleReplacementPlugin(),
+      new HtmlWebpackPlugin({
+        template: './site/index.html'
+      }),
+      new webpack.NoEmitOnErrorsPlugin(),
+      new ExtractTextPlugin('bundle-[name].css')
     ]    
 };
 
