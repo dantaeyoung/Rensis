@@ -3,6 +3,7 @@ import _ from 'lodash';
 import queryString from 'query-string';
 import editable from 'editable';
 
+window.editable = editable;
 import './css/reset.scss';
 import './css/main.scss';
 import Rensis from './Rensis/Rensis';
@@ -121,18 +122,22 @@ $(function() {
 //TODO: axes
     $("#twitterprofile").attr("src", "https://twitter.com/" + allResults.twitter_handle + "/profile_image?size=original");
     $("#personname").html(allResults.name);
-    $("#postquestions").fadeIn(1000);
-    $("#personalityquestions").fadeOut(1000);
+    $("#postquestions").fadeIn(500);
+    $("#personalityquestions").fadeOut(500);
 
   });
 
   $("button#postquestionsmessage").click(function() {
     clearInput();
     check_and_disable_cancelconfirm();
-    $("#personalityquestions").fadeIn(1000);
-    $("#postquestions").fadeOut(1000);
+    $("#personalityquestions").fadeIn(500);
+    $("#postquestions").fadeOut(500);
   })	
 
+
+  $('.text_question input[type="text"]').keyup(function () {
+    check_and_disable_cancelconfirm();
+  });
 
 });
 
