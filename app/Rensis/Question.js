@@ -27,15 +27,16 @@ class Question {
 	getHtml() {
 
 		if(this.options.type == "likert") {
+      var likertid = 'likert_' + this.options.qid ;
 			var html = ''
 			+'   <div class="likert_question question" id="question_' + this.options.qid + '">'
 			+'    <div class="statement">' + this.options.question + '</div> '
 			+'			<ul class="options">'
-			+'				<li class="wider"><input type="radio" name="likert_' + this.options.qid + '" value="strongly_disagree"><label>Strongly disagree</label></li>'
-			+'				<li><input type="radio" name="likert_' + this.options.qid + '" value="disagree"><label>Disagree</label></li>'
-			+'				<li><input type="radio" name="likert_' + this.options.qid + '" value="neutral"><label>Neutral</label></li>'
-			+'				<li><input type="radio" name="likert_' + this.options.qid + '" value="agree"><label>Agree</label></li>'
-			+'				<li class="wider"><input type="radio" name="likert_' + this.options.qid + '" value="strongly_agree"><label>Strongly agree</label></li>'
+			+'				<li class="wider"><input type="radio" name="' + likertid + '" id="' + likertid + "_sd" + '" value="strongly_disagree"><label for="' + likertid + "_sd" + '">Strongly disagree</label></li>'
+			+'				<li><input type="radio" name="' + likertid + '" id="' + likertid + "_d" + '" value="disagree"><label for="' + likertid + "_d" + '">Disagree</label></li>'
+			+'				<li><input type="radio" name="' + likertid + '" id="' + likertid + "_n" + '" value="neutral"><label for="' + likertid + "_n" + '">Neutral</label></li>'
+			+'				<li><input type="radio" name="' + likertid + '" id="' + likertid + "_a" + '" value="agree"><label for="' + likertid + "_a" + '">Agree</label></li>'
+			+'				<li class="wider"><input type="radio" name="' + likertid + '" id="' + likertid + "_sa" + '" value="strongly_agree"><label for="' + likertid + "_sa" + '">Strongly agree</label></li>'
 			+'			</ul>'
 			+'   </div>';
 			return html;
