@@ -224,8 +224,9 @@ button {
   background-color: white;
   width: 500px;
   height: 500px;
+  max-height: 70vw;
+  max-width: 70vw;
   position: relative;
-  padding: 25px;
   border: 20px solid white;
   border-radius: 10px;
   .mark {
