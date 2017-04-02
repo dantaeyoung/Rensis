@@ -133,6 +133,9 @@ $(function() {
   })	
 
 
+  $('.text_question input[type="text"]').update(function () {
+    check_and_disable_cancelconfirm();
+  });
   $('.text_question input[type="text"]').keyup(function () {
     check_and_disable_cancelconfirm();
   });
