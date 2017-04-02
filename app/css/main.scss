@@ -18,7 +18,7 @@ body {
 }
 
 #wrapper {
-  padding: 50px;
+  padding: 50px 20px;
   max-width: 700px;
   margin: auto;
 }
@@ -50,11 +50,13 @@ body {
   li label {
     padding: 5px 8px;
     border-radius: 4px;
+    margin: -5px -4px;
   }
 }
 
 .options input:checked + label {
   background-color: $highlightcolor;
+  z-index: 20;
   font-weight: bold;
   font-family: "Cousine", "monospace", sans-serif !important;
 }
@@ -69,6 +71,7 @@ input[type='text']:valid {
     font-size: 1.5em;
     border-radius: 10px;
     padding: 10px;
+    width: calc(100% - 20px);
   }
 }
 
@@ -84,39 +87,42 @@ input[type='text']:valid {
 .likert_question {
   & .options {
     list-style: none;
+    text-align: center;
     width: 100%;
     margin: 10px 0px 0px 0px;
     padding: 0 0 15px;
-    display: block;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
+
+    --barwidth: 80%;
     &:before {
       content: "";
-      position: relative;
-      top: 11px;
-      left: 13%;
+      position: absolute;
+      top: 7px;
+      width: calc(var(--barwidth));
+      left: calc((100% - var(--barwidth)) / 2);
       display: block;
       background-color: #efefef;
       height: 4px;
-      width: 74%;
     }
   }
   & .options li {
-    display: inline-block;
-    width: 15%;
+    z-index: 10;
+    width: calc((var(--barwidth) / 4));
     text-align: center;
     vertical-align: top;
-    &.wider {
-      width: 25%;
+    &.xwider {
+      width: var(--widerwidth);
     }
     & label {
       width: 100%;
+      display: block;
     }
     & input {
-      display: block;
-      position: relative;
-      top: 0;
-      left: 50%;
-      margin-left: -6px;
+      display: inline-block;
     }
   }
 }
