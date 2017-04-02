@@ -133,11 +133,7 @@ $(function() {
     $("#postquestions").fadeOut(500);
   })	
 
-
-  $('.text_question input[type="text"]').update(function () {
-    check_and_disable_cancelconfirm();
-  });
-  $('.text_question input[type="text"]').keyup(function () {
+  $('.text_question input[type="text"]').on('input propertychange paste', function () {
     check_and_disable_cancelconfirm();
   });
 
