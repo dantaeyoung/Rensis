@@ -28,7 +28,7 @@ module.exports =  {
 
     // Wherever resource (css, js, img) you call <script src="..."></script>,
     // or css, or img use this path as the root
-    publicPath: '/',
+    publicPath: './',
 
     // At some point you'll have to debug your code, that's why I'm giving you
     // for free a source map file to make your life easier
