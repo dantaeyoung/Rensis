@@ -128,6 +128,7 @@ $(function() {
   $("button#postquestionsmessage").click(function() {
     clearInput();
     check_and_disable_cancelconfirm();
+    $("body").scrollTop(0)
     $("#personalityquestions").fadeIn(500);
     $("#postquestions").fadeOut(500);
   })	
